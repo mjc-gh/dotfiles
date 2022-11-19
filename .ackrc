@@ -1,0 +1,9 @@
+--type-add=html=.html.erb,.html.haml
+--sort-files
+--color
+--follow
+--group
+
+--ignore-dir=log/
+--ignore-dir=tmp/
+--ignore-dir=node_modules/
