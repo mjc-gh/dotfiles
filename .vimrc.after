@@ -1,0 +1,46 @@
+" Filetype customizations
+autocmd FileType javascript,typescript set expandtab sw=2 ts=2 sts=2
+autocmd FileType haml set expandtab sw=2 ts=2 sts=2
+autocmd FileType terraform set expandtab sw=2 ts=2 sts=2
+autocmd FileType gitcommit set tw=72
+
+" Colors and theme
+let g:solarized_termtrans=1
+
+set background=dark
+colorscheme solarized
+
+augroup SyntaxSettings
+  autocmd!
+  autocmd BufNewFile,BufRead *.tsx set ft=typescript syntax=typescript
+  autocmd BufNewFile,BufRead *.html.inky-haml set ft=haml syntax=haml
+augroup END
+
+" Colors and theme
+"if !empty($TERMCOLORS)
+  "let g:solarized_termcolors=256
+"endif
+
+"set background=dark
+"colorscheme solarized
+
+
+" Ignore certain things from Ctrl-P and NERDTree
+set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem
+set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
+set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*,*/.sass-cache/*
+set wildignore+=*/tmp/cache/assets/*/sprockets/*,*/tmp/cache/assets/*/sass/*
+set wildignore+=*.swp,*~,._*
+set wildignore+=*.mako.py,*.pyc,*/tmp/*,*/node_modules/*,*/bower_components/*,*/target/*,*/dist/*,*/build/*,*/public/packs*
+
+let NERDTreeIgnore = ["\.mako.py$", "\.pyc$", "target", "tmp", "node_modules", "bower_components", "public/packs", "build/"]
+
+let g:NERDTreeDirArrowCollapsible = '-'
+let g:NERDTreeDirArrowExpandable = '+'
+
+" Backup and undo files
+set backup
+set backupdir=~/.vim/_temp/backup
+set undodir=~/.vim/_temp/undo
+set directory=~/.vim/_temp/swap
+set noswapfile
