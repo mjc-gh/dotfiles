@@ -30,7 +30,6 @@ augroup END
 "set background=dark
 "colorscheme solarized
 
-
 " Ignore certain things from Ctrl-P and NERDTree
 set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
@@ -44,11 +43,6 @@ let NERDTreeIgnore = ["\.mako.py$", "\.pyc$", "target", "tmp", "node_modules", "
 let g:NERDTreeDirArrowCollapsible = '-'
 let g:NERDTreeDirArrowExpandable = '+'
 
-" Backup and undo files
-set backup
-set backupdir=~/.vim/_temp/backup
-set undodir=~/.vim/_temp/undo
-set directory=~/.vim/_temp/swap
 set noswapfile
 
 if executable('rust-analyzer')
@@ -81,3 +75,17 @@ function! s:on_lsp_buffer_enabled() abort
 
     " refer to doc to add more commands
 endfunction
+
+" vim-ai config
+let g:vim_ai_roles_config_file = '~/.janus/vim-ai-roles.ini'
+let g:vim_ai_token_file_path = "~/.janus/vim-ai-token"
+let g:vim_ai_complete = {
+      \  "options": {
+      \    "endpoint_url": "https://openrouter.ai/api/v1/chat/completions",
+      \    "model": "anthropic/claude-sonnet-4.5",
+      \    "stream": 0,
+      \    "temperature": 1,
+      \    "max_completion_tokens": 5000,
+      \    "initial_prompt": "",
+      \  },
+      \}
