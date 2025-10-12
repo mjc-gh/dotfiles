@@ -89,3 +89,23 @@ let g:vim_ai_complete = {
       \    "initial_prompt": "",
       \  },
       \}
+let g:vim_ai_chat = {
+      \  "options": {
+      \    "endpoint_url": "https://openrouter.ai/api/v1/chat/completions",
+      \    "model": "anthropic/claude-sonnet-4.5",
+      \    "stream": 0,
+      \    "temperature": 1,
+      \    "max_completion_tokens": 5000,
+      \    "initial_prompt": "",
+      \  },
+      \}
+let g:vim_ai_edit = {
+      \  "options": {
+      \    "endpoint_url": "https://openrouter.ai/api/v1/chat/completions",
+      \    "model": "anthropic/claude-sonnet-4.5",
+      \    "stream": 0,
+      \    "temperature": 1,
+      \    "max_completion_tokens": 5000,
+      \    "initial_prompt": "",
+      \  },
+      \}
