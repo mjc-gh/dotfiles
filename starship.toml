@@ -1,0 +1,23 @@
+[git_status]
+# Format of the Git status display
+format = '([$all_status$ahead_behind](bold yellow) )'
+# Symbols for different Git states
+conflicted = 'C'
+ahead = '⇡${count}'
+behind = '⇣${count}'
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+untracked = '?'
+stashed = '$'
+modified = '!'
+staged = '+'
+renamed = '»'
+deleted = '✘'
+
+# Configure the git_commit module
+[git_commit]
+# Display the short commit hash
+format = "[$hash](bold yellow)"
+# Only show the commit hash if it's not the latest commit on the current branch
+only_detached = false # Set to true to only show when detached HEAD
+# You can also customize the style
+style = "bold yellow"
