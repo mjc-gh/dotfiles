@@ -1,23 +1,67 @@
-[git_status]
-# Format of the Git status display
-format = '([$all_status$ahead_behind](bold yellow) )'
-# Symbols for different Git states
-conflicted = 'C'
-ahead = '⇡${count}'
-behind = '⇣${count}'
-diverged = '⇕⇡${ahead_count}⇣${behind_count}'
-untracked = '?'
-stashed = '$'
-modified = '!'
-staged = '+'
-renamed = '»'
-deleted = '✘'
+format="""
+$directory\
+$git_branch\
+$git_status\
+$git_state\
+$git_commit\
+$git_metrics\
+$cmd_duration\
+$golang\
+$ruby\
+$rust\
+$line_break\
+$character"""
+
+[directory]
+truncation_length = 3
+format = "[$path]($style)[$lock_symbol]($lock_style) "
+style = "bold fg:bright-white"
+read_only = "🔒"
+read_only_style= "bold white"
+
+[git_branch]
+symbol="🌱 "
+truncation_length=4
+truncation_symbol=""
+ignore_branches=["master", "main"]
 
 # Configure the git_commit module
 [git_commit]
 # Display the short commit hash
-format = "[$hash](bold yellow)"
-# Only show the commit hash if it's not the latest commit on the current branch
-only_detached = false # Set to true to only show when detached HEAD
+format="[$hash](bold yellow)i "
+# Only show the commit hash if it"s not the latest commit on the current branch
+only_detached=true # Set to true to only show when detached HEAD
 # You can also customize the style
-style = "bold yellow"
+style="bold yellow"
+
+[git_state]
+format='\([$state($progress_current/$progress_total)]($style)\) '
+style="bg:bg_4"
+cherry_pick="[🍒 PICKING]"
+rebase="[♻️ REBASING]"
+merge="[🔀 MERGING]"
+bisect="[🔍 BISECTING]"
+am="[AM]"
+am_or_rebase="[AM/REBASE]"
+revert="[REVERTING]"
+disabled=false
+
+[git_status]
+# Format of the Git status display
+format="([$all_status$ahead_behind](bold yellow)) "
+# Symbols for different Git states
+conflicted="C"
+ahead="⇡${count}"
+behind="⇣${count}"
+diverged="⇕⇡${ahead_count}⇣${behind_count}"
+untracked="?"
+stashed="$"
+modified="!"
+staged="+"
+renamed="»"
+deleted="✘"
+
+[git_metrics]
+added_style="bold blue"
+format="([+$added ]($added_style))([-$deleted ]($deleted_style))"
+disabled=false
