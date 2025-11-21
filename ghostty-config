@@ -1,5 +1,10 @@
 command = /opt/homebrew/bin/bash
 
+font-family = "Menlo Regular"
+font-feature = -calt
+
+clipboard-trim-trailing-spaces = false
+
 background = #002b36
 foreground = #839496
 selection-background = #073642
