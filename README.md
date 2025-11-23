@@ -12,6 +12,15 @@ __git_complete gb _git_branch
 __git_complete gc _git_checkout
 ```
 
+### Functions
+
+```
+jqe() {                                                                                                                                                           
+  jq -C 'walk(if type == "string" and length > 64 then .[0:64] + "..." else . end)' $1 \                                                                          
+    | less -R                                                                                                                                                     
+}
+```
+
 ### macOS Brew Completions
 
 ```
