@@ -79,33 +79,3 @@ endfunction
 " vim-ai config
 let g:vim_ai_roles_config_file = '~/.janus/vim-ai-roles.ini'
 let g:vim_ai_token_file_path = "~/.janus/vim-ai-token"
-let g:vim_ai_complete = {
-      \  "options": {
-      \    "endpoint_url": "https://openrouter.ai/api/v1/chat/completions",
-      \    "model": "anthropic/claude-sonnet-4.5",
-      \    "stream": 0,
-      \    "temperature": 1,
-      \    "max_completion_tokens": 5000,
-      \    "initial_prompt": "",
-      \  },
-      \}
-let g:vim_ai_chat = {
-      \  "options": {
-      \    "endpoint_url": "https://openrouter.ai/api/v1/chat/completions",
-      \    "model": "anthropic/claude-sonnet-4.5",
-      \    "stream": 0,
-      \    "temperature": 1,
-      \    "max_completion_tokens": 5000,
-      \    "initial_prompt": "",
-      \  },
-      \}
-let g:vim_ai_edit = {
-      \  "options": {
-      \    "endpoint_url": "https://openrouter.ai/api/v1/chat/completions",
-      \    "model": "anthropic/claude-sonnet-4.5",
-      \    "stream": 0,
-      \    "temperature": 1,
-      \    "max_completion_tokens": 5000,
-      \    "initial_prompt": "",
-      \  },
-      \}
