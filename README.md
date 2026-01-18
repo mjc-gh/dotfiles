@@ -2,14 +2,15 @@
 
 ```
 alias ll="ls -al"
-alias g="git"
-alias gs="git status"
+alias gd="git diff"
 alias gb="git branch"
 alias gc="git checkout"
+alias gs="git status"
 
-__git_complete gs _git_status
+__git_complete gd _git_diff
 __git_complete gb _git_branch
 __git_complete gc _git_checkout
+__git_complete gs _git_status
 ```
 
 ### Functions
