@@ -1,0 +1,89 @@
+{
+	"permissions": {
+		"allow": [
+			"Bash(git:*)",
+			"Bash(ls:*\\) or Bash\\(grep:*)",
+		],
+		"deny": [
+			"Bash(rm -rf *)",
+			"Bash(rm -fr *)",
+			"Bash(sudo *)",
+			"Bash(mkfs *)",
+			"Bash(dd *)",
+			"Bash(curl *|bash*)",
+			"Bash(wget *|bash*)",
+			"Bash(git push --force*)",
+			"Bash(git push *--force*)",
+			"Bash(git reset --hard*)",
+
+			"Edit(~/.bashrc)",
+			"Edit(~/.zshrc)",
+			"Edit(~/.ssh/**)",
+
+			"Read(~/.ssh/**)",
+			"Read(~/.gnupg/**)",
+			"Read(~/.aws/**)",
+			"Read(~/.azure/**)",
+			"Read(~/.config/gh/**)",
+			"Read(~/.git-credentials)",
+			"Read(~/.docker/config.json)",
+			"Read(~/.kube/**)",
+			"Read(~/.npmrc)",
+			"Read(~/.npm/**)",
+			"Read(~/.pypirc)",
+			"Read(~/.gem/credentials)",
+			"Read(~/Library/Keychains/**)",
+			"Read(~/Library/Application Support/**/metamask*/**)",
+			"Read(~/Library/Application Support/**/electrum*/**)",
+			"Read(~/Library/Application Support/**/exodus*/**)",
+			"Read(~/Library/Application Support/**/phantom*/**)",
+			"Read(~/Library/Application Support/**/solflare*/**)"
+		]
+	},
+	"model": "opus",
+	"hooks": {
+		"Notification": [
+			{
+				"matcher": "permission_prompt",
+				"hooks": [
+					{
+						"type": "command",
+						"command": "terminal-notifier -title \"🔔 Claude Code\" -group \"$(basename $(pwd)) \" -message \"$(basename $(pwd)) needs permission\" -sender com.apple.Terminal -sound Bottle"
+					}
+				]
+			},
+			{
+				"matcher": "elicitation_dialog",
+				"hooks": [
+					{
+						"type": "command",
+						"command": "terminal-notifier -title \"🔔 Claude Code\" -group \"$(basename $(pwd)) \" -message \"$(basename $(pwd)) needs input\" -sender com.apple.Terminal -sound Bottle"
+					}
+				]
+			}
+		],
+		"Stop": [
+			{
+				"hooks": [
+					{
+						"type": "command",
+						"command": "terminal-notifier -title \"🔔 Claude Code\" -group \"$(basename $(pwd)) \" -message \"$(basename $(pwd)) has stopped\" -sender com.apple.Terminal -sound Blow"
+					}
+				]
+			}
+		]
+	},
+	"statusLine": {
+		"type": "command",
+		"command": "input=$(cat); model=$(echo \"$input\" | jq -r '.model.display_name'); model_id=$(echo \"$input\" | jq -r '.model.id'); total_in=$(echo \"$input\" | jq -r '.context_window.total_input_tokens'); total_out=$(echo \"$input\" | jq -r '.context_window.total_output_tokens'); case \"$model_id\" in *opus-4*) ip=15.00; op=75.00;; *sonnet-4*) ip=3.00; op=15.00;; *opus*) ip=15.00; op=75.00;; *sonnet*) ip=3.00; op=15.00;; *haiku*) ip=0.80; op=4.00;; *) ip=3.00; op=15.00;; esac; cost=$(echo \"scale=2; ($total_in * $ip + $total_out * $op) / 1000000\" | bc); printf \"%s | Cost: \\$%s\" \"$model\" \"$cost\""
+	},
+	"spinnerTipsEnabled": false,
+	"spinnerVerbs": {
+		"mode": "replace",
+		"verbs": [
+			"Calculating",
+			"Processing"
+		]
+	},
+	"effortLevel": "medium"
+}
