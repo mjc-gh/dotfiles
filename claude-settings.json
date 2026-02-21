@@ -86,7 +86,7 @@
 					},
 					{
 						"type": "command",
-						"command": "~/.local/bin/tmux-rename-window stop"
+						"command": "~/.local/bin/tmux-rename-window clear"
 					}
 				]
 			}
