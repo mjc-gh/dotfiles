@@ -1,0 +1,16 @@
+#!/bin/bash
+
+current_name=$(tmux display-message -p '#W')
+
+case "$1" in
+    input)
+        [[ "$current_name" != *-^* && "$current_name" != *-!* ]] && tmux rename-window "${current_name}-^"
+        ;;
+    permission)
+        [[ "$current_name" != *-^* && "$current_name" != *-!* ]] && tmux rename-window "${current_name}-!"
+        ;;
+    clear)
+        new_name=$(echo "$current_name" | sed 's/-\^//g; s/-!//g')
+        tmux rename-window "$new_name"
+        ;;
+esac

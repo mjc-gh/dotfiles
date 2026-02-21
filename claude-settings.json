@@ -56,6 +56,10 @@
 					{
 						"type": "command",
 						"command": "terminal-notifier -title \"🔔 Claude Code\" -group \"$(basename $(pwd)) \" -message \"$(basename $(pwd)) needs permission\" -sender com.apple.Terminal -sound Bottle"
+					},
+					{
+						"type": "command",
+						"command": "~/.local/bin/tmux-rename-window permission"
 					}
 				]
 			},
@@ -65,6 +69,10 @@
 					{
 						"type": "command",
 						"command": "terminal-notifier -title \"🔔 Claude Code\" -group \"$(basename $(pwd)) \" -message \"$(basename $(pwd)) needs input\" -sender com.apple.Terminal -sound Bottle"
+					},
+					{
+						"type": "command",
+						"command": "~/.local/bin/tmux-rename-window input"
 					}
 				]
 			}
@@ -75,6 +83,10 @@
 					{
 						"type": "command",
 						"command": "terminal-notifier -title \"🔔 Claude Code\" -group \"$(basename $(pwd)) \" -message \"$(basename $(pwd)) has stopped\" -sender com.apple.Terminal -sound Blow"
+					},
+					{
+						"type": "command",
+						"command": "~/.local/bin/tmux-rename-window stop"
 					}
 				]
 			}
