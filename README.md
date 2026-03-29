@@ -2,9 +2,16 @@
 
 ```
 alias ll="ls -al"
-alias gd="git diff"
-alias gb="git branch"
+
+alias ga='git add'
+alias gaa="git add --all"
+alias gb='git branch'
 alias gc="git checkout"
+alias gch='git checkout'
+alias gco='git commit'
+alias gd="git diff"
+alias gds="git diff --staged"
+alias gp='git push'
 alias gs="git status"
 
 __git_complete gd _git_diff
@@ -16,9 +23,9 @@ __git_complete gs _git_status
 ### Functions
 
 ```
-jqe() {                                                                                                                                                           
-  jq -C 'walk(if type == "string" and length > 64 then .[0:64] + "..." else . end)' $1 \                                                                          
-    | less -R                                                                                                                                                     
+jqe() {
+  jq -C 'walk(if type == "string" and length > 64 then .[0:64] + "..." else . end)' $1 \
+    | less -R
 }
 ```
 
