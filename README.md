@@ -11,6 +11,7 @@ alias gch='git checkout'
 alias gco='git commit'
 alias gd="git diff"
 alias gds="git diff --staged"
+alias gl="git log"
 alias gp='git push'
 alias gs="git status"
 
