@@ -39,6 +39,7 @@ set wildignore+=*.swp,*~,._*
 set wildignore+=*.mako.py,*.pyc,*/tmp/*,*/node_modules/*,*/bower_components/*,*/target/*,*/dist/*,*/build/*,*/public/packs*
 
 let NERDTreeIgnore = ["\.mako.py$", "\.pyc$", "target", "tmp", "node_modules", "bower_components", "public/packs", "build/"]
+let NERDTreeShowHidden=1
 
 let g:NERDTreeDirArrowCollapsible = '-'
 let g:NERDTreeDirArrowExpandable = '+'
