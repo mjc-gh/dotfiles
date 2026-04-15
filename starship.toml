@@ -14,7 +14,7 @@ $character"""
 
 [directory]
 truncation_length = 3
-format = "[$path]($style)[$lock_symbol]($lock_style) "
+format = "[$path]($style)[$lock_symbol]($lock_style)"
 style = "bold fg:bright-white"
 read_only = "🔒"
 read_only_style= "bold white"
