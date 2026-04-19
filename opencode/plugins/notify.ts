@@ -26,12 +26,6 @@ export const NotifyPlugin: Plugin = async ({
       tags: "hourglass",
       priority: "default",
     },
-    "session.completed": {
-      title: "Session Complete",
-      body: `OpenCode session in ${dirName} has completed.`,
-      tags: "white_check_mark",
-      priority: "default",
-    },
     "session.error": {
       title: "Session Error",
       body: `OpenCode session in ${dirName} encountered an error.`,
